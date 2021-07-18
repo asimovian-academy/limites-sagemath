@@ -1,0 +1,713 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{precuxe1lculo}{%
+\section{PRECÁLCULO}\label{precuxe1lculo}}
+
+\hypertarget{funciones-y-sus-luxedmites}{%
+\subsection{FUNCIONES Y SUS LÍMITES}\label{funciones-y-sus-luxedmites}}
+
+\hypertarget{juliho-castillo-colmenares}{%
+\subsubsection{\texorpdfstring{Juliho Castillo Colmenares
+}{Juliho Castillo Colmenares }}\label{juliho-castillo-colmenares}}
+
+\emph{IMPORTANTE: Para correr el siguiente código, necesitarás
+\href{https://youtu.be/8KT9GMruOrU}{Sagemath.}}
+
+El cálculo es muy diferente de las matemáticas que has estudiado hasta
+hoy, porque tiene que ver con cambios. En esta sección estudiaremos el
+comportamiento en cambio de funciones y sus límites.
+
+\hypertarget{funciones-y-su-representaciuxf3n}{%
+\subsection{\texorpdfstring{Funciones y su representación.
+}{Funciones y su representación. }}\label{funciones-y-su-representaciuxf3n}}
+
+Las funciones surgen cuando una cantidad depende de otra. Consideremos
+algunos ejemplos.
+
+\hypertarget{ejemplo-a}{%
+\paragraph{Ejemplo A}\label{ejemplo-a}}
+
+El área de un círculo depende del radio del mismo:\\
+\( A = \pi r^2 \)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ area\_circulo(radio):}
+    \ControlFlowTok{return} \FloatTok{3.14159}\OperatorTok{*}\NormalTok{radio}\OperatorTok{\^{}}\DecValTok{2}
+
+\BuiltInTok{print}\NormalTok{(area\_circulo(}\FloatTok{2.5267490372}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+20.0573578810604
+\end{verbatim}
+
+\hypertarget{ejemplo-b}{%
+\paragraph{Ejemplo B}\label{ejemplo-b}}
+
+La población humana (en todo el mundo) \(P\) depende del tiempo \(t\).
+En la siguiente tabla, se muestra el año y la población en milliones
+correspondiente:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{poblacion }\OperatorTok{=}\NormalTok{ [}
+\NormalTok{    [}\DecValTok{1900}\NormalTok{, }\DecValTok{1650}\NormalTok{],}
+\NormalTok{    [}\DecValTok{1910}\NormalTok{, }\DecValTok{1750}\NormalTok{],}
+\NormalTok{    [}\DecValTok{1920}\NormalTok{, }\DecValTok{1860}\NormalTok{],}
+\NormalTok{    [}\DecValTok{1930}\NormalTok{, }\DecValTok{2070}\NormalTok{],}
+\NormalTok{    [}\DecValTok{1940}\NormalTok{, }\DecValTok{2300}\NormalTok{],}
+\NormalTok{    [}\DecValTok{1950}\NormalTok{, }\DecValTok{2560}\NormalTok{],}
+\NormalTok{    [}\DecValTok{1960}\NormalTok{, }\DecValTok{3040}\NormalTok{],}
+\NormalTok{    [}\DecValTok{1970}\NormalTok{, }\DecValTok{3710}\NormalTok{],}
+\NormalTok{    [}\DecValTok{1980}\NormalTok{, }\DecValTok{4450}\NormalTok{],}
+\NormalTok{    [}\DecValTok{1990}\NormalTok{, }\DecValTok{5280}\NormalTok{],}
+\NormalTok{    [}\DecValTok{2000}\NormalTok{, }\DecValTok{6080}\NormalTok{],}
+\NormalTok{    [}\DecValTok{2010}\NormalTok{, }\DecValTok{6870}\NormalTok{]}
+\NormalTok{            ]}
+\end{Highlighting}
+\end{Shaded}
+
+A partir de esta tabla, podemos crear una función punto a punto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ P(t):}
+    \ControlFlowTok{for}\NormalTok{ dato }\KeywordTok{in}\NormalTok{ poblacion:}
+        \ControlFlowTok{if}\NormalTok{ t}\OperatorTok{==}\NormalTok{dato[}\DecValTok{0}\NormalTok{]:}
+            \ControlFlowTok{return}\NormalTok{ dato[}\DecValTok{1}\NormalTok{]}
+        
+\BuiltInTok{print}\NormalTok{(P(}\DecValTok{1950}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+2560
+\end{verbatim}
+
+\hypertarget{ejemplo-c}{%
+\paragraph{Ejemplo C}\label{ejemplo-c}}
+
+El costo \(C\) de enviar un paquete depende del peso \(w\). Por ejemplo,
+supongamos que los precio están dados por las siguiente reglas:
+
+\begin{itemize}
+\item
+  Menor o igual a 10 kgs: Costo fijo de \$150 más \$10 por kilogramo
+\item
+  Mayor a 10 kgs: \$25 por kilogramo
+\item
+  La capacidad máxima del envíoi es 20 kgs
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{"""}
+\CommentTok{Definimos la función de costo C en función del peso w}
+\CommentTok{"""}
+\KeywordTok{def}\NormalTok{ C(w):}
+    \ControlFlowTok{if}\NormalTok{ w}\OperatorTok{\textless{}}\DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{return} \StringTok{"¿Seguro que estás enviando algo?"}
+    \ControlFlowTok{elif}\NormalTok{ w}\OperatorTok{\textless{}=}\DecValTok{10}\NormalTok{:}
+        \ControlFlowTok{return} \DecValTok{150} \OperatorTok{+} \DecValTok{10}\OperatorTok{*}\NormalTok{w}
+    \ControlFlowTok{elif}\NormalTok{ w}\OperatorTok{\textless{}=}\DecValTok{20}\NormalTok{:}
+        \ControlFlowTok{return} \DecValTok{25}\OperatorTok{*}\NormalTok{w}
+    \ControlFlowTok{else}\NormalTok{:}
+        \ControlFlowTok{return} \StringTok{"¡Excediste la capacidad!"}    
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{"""}
+\CommentTok{Graficamos en el intervalo (0,20)}
+\CommentTok{"""}
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.arange(}\DecValTok{0}\NormalTok{,}\DecValTok{20}\NormalTok{,}\FloatTok{0.01}\NormalTok{)}
+\NormalTok{C }\OperatorTok{=}\NormalTok{ np.vectorize(C)}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ C(x)}
+
+\NormalTok{plt.plot(x,y)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_10_0.png}
+\caption{}
+\end{figure}
+
+\hypertarget{ejemplo-d}{%
+\paragraph{Ejemplo D}\label{ejemplo-d}}
+
+La aceleracion vertical \(a\) del suelo en un terremoto\\
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/IM10101.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{"""}
+\CommentTok{Simularemos la acelaración a respecto al tiempo t}
+\CommentTok{"""}
+\KeywordTok{def}\NormalTok{ a(t):}
+    \ControlFlowTok{return}\NormalTok{ np.sin(t)}\OperatorTok{*}\NormalTok{np.random.normal()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{"""}
+\CommentTok{Graficamos en el intervalo (0, pi)}
+\CommentTok{"""}
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.arange(}\DecValTok{0}\NormalTok{,np.pi,}\FloatTok{0.01}\NormalTok{)}
+\NormalTok{a }\OperatorTok{=}\NormalTok{ np.vectorize(a)}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ a(x)}
+
+\NormalTok{plt.plot(x,y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[<matplotlib.lines.Line2D object at 0x6ffe91c1f1d0>]
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_13_1.png}
+\caption{}
+\end{figure}
+
+Una \textbf{función} \(f\) es una regla que asigna a cada elemento \(x\)
+de un conjunto \(D\) un elemento \(f(x)\) de un conjunto \(E\).
+
+Al conjunto \(D\) se le llama \textbf{dominio}, mientras que a \(E\) se
+le llama \textbf{contradominio}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ var(}\StringTok{"x"}\NormalTok{)}
+\NormalTok{f(x) }\OperatorTok{=}\NormalTok{ exp(}\OperatorTok{{-}}\NormalTok{x}\OperatorTok{\^{}}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{sin(x)}
+\NormalTok{grafica }\OperatorTok{=}\NormalTok{ plot(f)}
+\NormalTok{show(grafica)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_15_0.png}
+\caption{}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grafica }\OperatorTok{=}\NormalTok{ plot(f, (x,}\OperatorTok{{-}}\DecValTok{5}\NormalTok{,}\DecValTok{5}\NormalTok{))}
+\NormalTok{show(grafica)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_16_0.png}
+\caption{}
+\end{figure}
+
+\hypertarget{representaciuxf3n-de-funciones}{%
+\subsubsection{Representación de
+funciones}\label{representaciuxf3n-de-funciones}}
+
+\hypertarget{ejercicio-1}{%
+\paragraph{Ejercicio}\label{ejercicio-1}}
+
+Encuentre el dominio de cada función:
+
+\begin{itemize}
+\item
+  \(f(x)=\sqrt{x+2}\)
+\item
+  \(g(x)=\dfrac{1}{x^2-x}\)
+\end{itemize}
+
+\hypertarget{prueba-de-la-linea-vertical}{%
+\paragraph{\texorpdfstring{Prueba de la linea vertical
+}{Prueba de la linea vertical }}\label{prueba-de-la-linea-vertical}}
+
+Una curva en el plano \(xy\) es la gráfica de una función \(y=f(x)\) si
+y solo si no existe línea vertical alguna que intersecte la curva más de
+dos veces.
+
+\hypertarget{ejemplo-1}{%
+\paragraph{Ejemplo}\label{ejemplo-1}}
+
+Determina si la ecuación \(x^2-y^2=1\) define una función \(y=f(x)\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x,y }\OperatorTok{=}\NormalTok{ var(}\StringTok{"x,y"}\NormalTok{)}
+\NormalTok{ecuacion }\OperatorTok{=}\NormalTok{ x}\OperatorTok{\^{}}\DecValTok{2}\OperatorTok{{-}}\NormalTok{y}\OperatorTok{\^{}}\DecValTok{2}\OperatorTok{==}\DecValTok{1}
+\NormalTok{grafica }\OperatorTok{=}\NormalTok{ implicit\_plot(ecuacion, (x,}\OperatorTok{{-}}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), (y,}\OperatorTok{{-}}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\NormalTok{show(grafica)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_21_0.png}
+\caption{}
+\end{figure}
+
+\hypertarget{ejemplo-2}{%
+\paragraph{Ejemplo}\label{ejemplo-2}}
+
+Determina si la ecuación \((x-1)^2=4(y-2)\) define una función
+\(y=f(x)\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x,y }\OperatorTok{=}\NormalTok{ var(}\StringTok{"x,y"}\NormalTok{)}
+\NormalTok{ecuacion }\OperatorTok{=}\NormalTok{ (x}\OperatorTok{{-}}\DecValTok{1}\NormalTok{)}\OperatorTok{\^{}}\DecValTok{2}\OperatorTok{==}\DecValTok{4}\OperatorTok{*}\NormalTok{(y}\OperatorTok{{-}}\DecValTok{2}\NormalTok{)}
+\NormalTok{grafica }\OperatorTok{=}\NormalTok{ implicit\_plot(ecuacion, (x,}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{), (y,}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{))}
+\NormalTok{show(grafica)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_23_0.png}
+\caption{}
+\end{figure}
+
+\hypertarget{ejemplo-3}{%
+\paragraph{\texorpdfstring{Ejemplo }{Ejemplo }}\label{ejemplo-3}}
+
+Determina si la gráfica de las ecuaciones paramétricas:\\
+\( x = 10t, y = 50+5t-\dfrac{1}{2}(9.8)t^2\)\\
+define una función \(y=f(x)\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t }\OperatorTok{=}\NormalTok{ var(}\StringTok{"t"}\NormalTok{)}
+\NormalTok{x(t) }\OperatorTok{=} \DecValTok{10}\OperatorTok{*}\NormalTok{t}
+\NormalTok{y(t) }\OperatorTok{=} \DecValTok{50}\OperatorTok{+}\DecValTok{5}\OperatorTok{*}\NormalTok{t}\OperatorTok{{-}}\NormalTok{(}\DecValTok{1}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{*}\NormalTok{(}\FloatTok{9.8}\NormalTok{)}\OperatorTok{*}\NormalTok{t}\OperatorTok{\^{}}\DecValTok{2}
+\NormalTok{grafica }\OperatorTok{=}\NormalTok{ parametric\_plot((x(t),y(t)), (t,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+
+\NormalTok{show(grafica)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_25_0.png}
+\caption{}
+\end{figure}
+
+\hypertarget{ejercicio-de-exploraciuxf3n-1}{%
+\paragraph{Ejercicio de
+exploración}\label{ejercicio-de-exploraciuxf3n-1}}
+
+Las funciones anteriores representan la posición de un proyectil en
+función del tiempo. Determina gráficamente:
+
+\begin{itemize}
+\item
+  la distancia a la que choca contra el suelo
+\item
+  cuanto tiempo tarde en ocurrir esto
+\item
+  la altura máxima y el tiempo en que se alcanza
+\end{itemize}
+
+¿Puedes determinar cuál es la función \(y=f(x)\)?
+
+\hypertarget{ejercicio-de-exploraciuxf3n-2}{%
+\paragraph{Ejercicio de
+exploración}\label{ejercicio-de-exploraciuxf3n-2}}
+
+Muchas relaciones fundamentales en matemáticas y física no se pueden
+expresar como funciones. Aún así se puede definir el dominio de una
+relación. Averigua en internet como es que se hace esto y determinalo
+gráficamente para la relación
+
+\( \dfrac{(x-2)^2}{9} + \dfrac{(y-3)^2}{4} = 1. \)
+
+\emph{¿Cuál es el intervalo minimal en el eje \(y\) que necesitas para
+graficar completamente la relación?}
+
+\hypertarget{funciones-representadas-a-trozos}{%
+\subsubsection{Funciones representadas a
+trozos}\label{funciones-representadas-a-trozos}}
+
+\hypertarget{ejemplo-4}{%
+\paragraph{Ejemplo}\label{ejemplo-4}}
+
+Una función \(f\) esta definida por\\
+\(f(x)=
+\begin{cases}
+1-x & x \leq 1\\
+x^2 & x>1
+\end{cases}
+\)
+
+Evaluar \(f(0), f(1), f(2)\) y graficar la función.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ f(x):}
+    \ControlFlowTok{if}\NormalTok{ x}\OperatorTok{\textless{}=}\DecValTok{1}\NormalTok{:}
+        \ControlFlowTok{return} \DecValTok{1}\OperatorTok{{-}}\NormalTok{x}
+    \ControlFlowTok{else}\NormalTok{:}
+        \ControlFlowTok{return}\NormalTok{ x}\OperatorTok{**}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\NormalTok{f }\OperatorTok{=}\NormalTok{ np.vectorize(f)}
+\NormalTok{x }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{]}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ f(x)}
+\BuiltInTok{print}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1 0 4]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.arange(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{,}\FloatTok{0.001}\NormalTok{)}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ f(x)}
+
+\NormalTok{plt.plot(x,y)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_32_0.png}
+\caption{}
+\end{figure}
+
+\hypertarget{ejercicio-valor-absoluto}{%
+\paragraph{Ejercicio (Valor absoluto)}\label{ejercicio-valor-absoluto}}
+
+\begin{itemize}
+\item
+  Investiga como se define la función \emph{valor absoluto}
+\item
+  Implementala en \texttt{Python}
+\item
+  Evaluala en el arreglo \(x=-1,0,1\)
+\item
+  Traza la gráfica
+\end{itemize}
+
+\hypertarget{simetruxeda}{%
+\subsubsection{Simetría}\label{simetruxeda}}
+
+Si una función \(f(x)\) satisface la relación \(f(x)=f(-x)\) en su
+dominio, diremos que la función es \textbf{par}. Su gráfica es simétrica
+respecto al eje \(y\).
+
+\hypertarget{ejemplo-5}{%
+\paragraph{Ejemplo}\label{ejemplo-5}}
+
+\( f(x) = x^2 \)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ var(}\StringTok{"x"}\NormalTok{)}
+\NormalTok{f(x) }\OperatorTok{=}\NormalTok{ x}\OperatorTok{\^{}}\DecValTok{2}
+\NormalTok{show(f(}\OperatorTok{{-}}\NormalTok{x))}
+\end{Highlighting}
+\end{Shaded}
+
+\textbackslash newcommand\{\textbackslash Bold\}{[}1{]}\{\textbackslash mathbf\{\#1\}\}x\^{}\{2\}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot(f)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_37_0.png}
+\caption{}
+\end{figure}
+
+\hypertarget{ejemplo-6}{%
+\paragraph{Ejemplo}\label{ejemplo-6}}
+
+\( g(x) = cos(x) \)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ var(}\StringTok{"x"}\NormalTok{)}
+\NormalTok{g(x) }\OperatorTok{=}\NormalTok{ cos(x)}
+\NormalTok{show(g(}\OperatorTok{{-}}\NormalTok{x).simplify())}
+\end{Highlighting}
+\end{Shaded}
+
+\textbackslash newcommand\{\textbackslash Bold\}{[}1{]}\{\textbackslash mathbf\{\#1\}\}\textbackslash cos\textbackslash left(x\textbackslash right)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot(g, (x,}\OperatorTok{{-}}\DecValTok{2}\OperatorTok{*}\NormalTok{pi, }\DecValTok{2}\OperatorTok{*}\NormalTok{pi))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_40_0.png}
+\caption{}
+\end{figure}
+
+Si una función \(f(x)\) satisface la relación \(f(-x)=-f(x)\) en su
+dominio, diremos que la función es \textbf{impar}. Su gráfica es
+simétrica respecto al origen.
+
+\hypertarget{ejemplo-4}{%
+\paragraph{Ejemplo 4}\label{ejemplo-4}}
+
+\(f(x) = x^3\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ var(}\StringTok{"x"}\NormalTok{)}
+\NormalTok{f(x) }\OperatorTok{=}\NormalTok{ x}\OperatorTok{\^{}}\DecValTok{3}
+\NormalTok{show(f(}\OperatorTok{{-}}\NormalTok{x).simplify())}
+\end{Highlighting}
+\end{Shaded}
+
+\textbackslash newcommand\{\textbackslash Bold\}{[}1{]}\{\textbackslash mathbf\{\#1\}\}-x\^{}\{3\}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot(f)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_44_0.png}
+\caption{}
+\end{figure}
+
+\hypertarget{ejemplo-7}{%
+\paragraph{\texorpdfstring{Ejemplo }{Ejemplo }}\label{ejemplo-7}}
+
+\(g(x) = \sin(x)\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ var(}\StringTok{"x"}\NormalTok{)}
+\NormalTok{g(x) }\OperatorTok{=}\NormalTok{ sin(x)}
+\NormalTok{show(g(}\OperatorTok{{-}}\NormalTok{x).simplify())}
+\end{Highlighting}
+\end{Shaded}
+
+\textbackslash newcommand\{\textbackslash Bold\}{[}1{]}\{\textbackslash mathbf\{\#1\}\}-\textbackslash sin\textbackslash left(x\textbackslash right)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot(g, (x,}\OperatorTok{{-}}\NormalTok{pi,pi))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_47_0.png}
+\caption{}
+\end{figure}
+
+\hypertarget{ejercicio-2}{%
+\paragraph{Ejercicio}\label{ejercicio-2}}
+
+Determina si las siguiente funciones son pares, impares o ninguna:
+
+\begin{itemize}
+\item
+  \(f(x)=x^5+x\)
+\item
+  \(g(x)=1-x^4\)
+\item
+  \(h(x)=2x-x^2\)
+\end{itemize}
+
+\hypertarget{funciones-crecientes-y-decrecientes}{%
+\paragraph{Funciones crecientes y
+decrecientes}\label{funciones-crecientes-y-decrecientes}}
+
+Una función \(f\) es \textbf{creciente} en un intervalo \(I\) si\\
+\(f(x_0) < f(x_1)\) siempre que \(x_1 < x_2\).
+
+Una función \(f\) es \textbf{decreciente} en un intervalo \(I\) si\\
+\(f(x_0) < f(x_1)\) siempre que \(x_1 < x_2\).
+
+\textbf{Observación} El intervalo es muy importante para determinar si
+la función es creciente o no. Consideremos la función \(f(x)=x^2\) en
+los intervalos
+
+\begin{itemize}
+\item
+  \(I=(-1,0)\)
+\item
+  \(I=(0,1)\)
+\item
+  \(I=(-1,-1)\)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ var(}\StringTok{"x"}\NormalTok{)}
+\NormalTok{f(x) }\OperatorTok{=}\NormalTok{ x}\OperatorTok{\^{}}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot(f, (x,}\OperatorTok{{-}}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_52_0.png}
+\caption{}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot(f, (x,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_53_0.png}
+\caption{}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plot(f, (x,}\OperatorTok{{-}}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/julih/Dropbox (Centro Turing)/Repositorios/precalculo-sagemath/{[}1{]} FUNCIONES Y SU REPRESENTACIÓN/{[}1{]} FUNCIONES Y SU REPRESENTACION/output_54_0.png}
+\caption{}
+\end{figure}
+
+\end{document}
